@@ -28,5 +28,5 @@ def result():                            # Run this function
                            shift = shift)
 
 if __name__ == "__main__":
-    # Auto reloads the server when changes are saved.
+    # Auto reloads the server when changes are saved 
     app.run(debug=True) 
