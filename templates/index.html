@@ -1,39 +1,67 @@
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <!doctype html>
 <html>
   <head>
     <title>Caesar Cipher</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
   </head>
   <body>
-    <h1>Caesar Cipher Encoder/Decoder</h1>
-    <p>Enter a message and shift amount to encode or decode</p>
-    <!-- Create a form and send that data to results using the POST method -->
-    <!-- REMINDER: POST method sends the data to requested body, not URL -->
-    <form action="/results" method="POST">
-      <!--Creates a label so that we can store our text-->
-      <label>Message: </label>
-      <!--QUICK REFRESHER: If I recall, this should accept a input type of text (string based)
-        and will call the input type name. The placeholder text for this label would be 
-        the "Enter your message" and would be a required entry.-->
-      <input
-        type="text"
-        name="message"
-        placeholder="Enter your message"
-        required
-      />
-      <!-- Create the shift amount label -->
-      <label>Shift Amount: </label>
-      <!-- Accept an input type of number and then name the given input shift
-         and have the placeholder text for the label be enter shift.-->
-      <input type="number" name="shift" placeholder="Enter shift" />
+    <div class="container">
+      <div class="header">
+        <span class="tag">// encryption tool</span>
+        <h1>Caesar Cipher</h1>
+        <p class="subtitle">
+          Encode or decode a message using the classic Caesar Cipher technique
+        </p>
+      </div>
 
-      <!-- Dropdown menu so that user could pick either 1 or 2 for encoding or decoding -->
-      <select name="choice">
-        <option value="encode">Encode</option>
-        <option value="decode">Decode</option>
-      </select>
+      <div class="card">
+        <!-- Create a form and send that data to results using the POST method -->
+        <!-- REMINDER: POST method sends the data to requested body, not URL -->
+        <form action="/results" method="POST">
+          <!--Creates a label so that we can store our text-->
+          <div class="field">
+            <label>Message</label>
+            <!--QUICK REFRESHER: If I recall, this should accept a input type of text (string based)
+                    and will call the input type name. The placeholder text for this label would be 
+                    the "Enter your message" and would be a required entry.-->
+            <input
+              type="text"
+              name="message"
+              placeholder="Enter your message"
+              required
+            />
+          </div>
 
-      <input type="submit" value="Submit" />
-    </form>
+          <!-- Create the shift amount label -->
+          <div class="field">
+            <label>Shift Amount</label>
+            <!-- Accept an input type of number and then name the given input shift
+                    and have the placeholder text for the label be enter shift.-->
+            <input
+              type="number"
+              name="shift"
+              placeholder="e.g. 3"
+              min="1"
+              max="25"
+              required
+            />
+          </div>
+
+          <!-- Dropdown menu so that user could pick either encode or decode -->
+          <div class="field">
+            <label>Operation</label>
+            <select name="choice">
+              <option value="encode">Encode</option>
+              <option value="decode">Decode</option>
+            </select>
+          </div>
+
+          <input type="submit" value="Run Cipher" />
+        </form>
+      </div>
+    </div>
   </body>
 </html>

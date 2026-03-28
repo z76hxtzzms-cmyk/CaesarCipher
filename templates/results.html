@@ -1,20 +1,51 @@
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <!doctype html>
 <html>
   <head>
-    <title>Caesar Cipher Result</title>
+    <title>Caesar Cipher — Result</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
   </head>
   <body>
-    <h1>Result</h1>
-    <!-- Display original message -->
-    <p>Original message: {{ original }}</p> 
-    <!-- Display shift amount -->
-    <p>Shift amount: {{ shift }}</p>
-    <!-- Display choice of encoding or decoding -->
-    <p>Choice: {{ choice }}</p>
-    <!-- Display the result of encoding or decoding -->
-    <p>Output: {{ result }}</p>
-    <!-- Add a link to go back to the homepage to encode/decode again-->
-    <a href="/">Go back</a>
+    <div class="container">
+      <div class="header">
+        <span class="tag">// result</span>
+        <h1>Cipher Output</h1>
+      </div>
+
+      <div class="card">
+        <span class="badge">{{ choice }}</span>
+
+        <div class="result-grid">
+          <!-- Display original message -->
+          <div class="result-item">
+            <span class="result-label">Original Message</span>
+            <span class="result-value">{{ original }}</span>
+          </div>
+
+          <!-- Display shift amount -->
+          <div class="result-item">
+            <span class="result-label">Shift Amount</span>
+            <span class="result-value">{{ shift }}</span>
+          </div>
+
+          <!-- Display choice of encoding or decoding -->
+          <div class="result-item">
+            <span class="result-label">Operation</span>
+            <span class="result-value">{{ choice }}</span>
+          </div>
+
+          <!-- Display the result of encoding or decoding -->
+          <div class="result-item highlight">
+            <span class="result-label">Output</span>
+            <span class="result-value">{{ result }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add a link to go back to the homepage to encode/decode again-->
+      <a href="/" class="back-link">Go back</a>
+    </div>
   </body>
 </html>
